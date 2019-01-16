@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 配置class标签下的name属性和table属性，分别为类的全路径和该类在数据库中对应的表名称 -->
+	<class name="com.farsight.bean.Customer" table="cst_customer">
+		<!-- 配置id -->
+		<id name="cust_id" column="cust_id">
+			<generator class="native"></generator>
+			<!-- 主键的生成策略
+				increment：适用于short、int、long作主键，不使用数据库增长机制，是hibernate一种增长机制，不使用集群环境
+				identity：适用于short、int、long作主键，采用数据库底层增长机制（auto_increment）,Oracle不支持
+				sequence：适用于short、int、long作主键，采用数据库底层序列的增长机制，Oracle底层没有自动增长，想要自动增长采用序列
+				uuid：适用于char、varchar作为主键。使用随机字符串作为主键
+				native:本地策略.根据底层的数据库不同,自动选择适用于该种数据库的生成策略.(short,int,long) * 如果底层使用的MySQL数据库:相当于identity. * 如果底层使用Oracle数据库:相当于sequence. 
+				assigned：主键的生成不用Hibernate管理了.必须手动设置主键.
+ 			-->
+		</id>
+		
+		<!-- name为javaBean属性;column为表结构字段; 如果相同，可省略,否则不可省略-->
+	   	<property name="cust_name"></property>
+	   	<property name="cust_user_id"></property>
+	   	<property name="cust_create_id"></property>
+	   	<property name="cust_source"></property>
+	   	<property name="cust_industry"></property>
+	   	<property name="cust_level"></property>
+	   	<property name="cust_linkman"></property>
+	   	<property name="cust_phone"></property>
+	   	<property name="cust_mobile"></property>
+	</class>
+</hibernate-mapping>
+
